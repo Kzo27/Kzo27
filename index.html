@@ -91,7 +91,12 @@
 <section id="about" class="py-16 bg-white dark:bg-gray-900">
   <div class="max-w-3xl mx-auto px-4 text-center">
     <h2 data-aos="fade-up" class="text-3xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">About Me</h2>
-    <p data-aos="fade-up" data-aos-delay="200" class="mt-4 text-lg text-gray-600 dark:text-gray-300">My name is Mochammad Suluh Tri Yoni. I’m passionate about building digital experiences and love learning new things!</p>
+
+
+   <p data-aos="fade-up" data-aos-delay="200" class="mt-4 text-lg text-gray-600 dark:text-gray-300">
+  I’m a passionate full-stack web developer who thrives on turning ideas into interactive, user-friendly applications. I specialize in Laravel and modern frontend tools, and I’m always looking for ways to learn, grow, and contribute to meaningful digital products.
+</p>
+
     <div class="flex justify-center space-x-4 text-2xl mt-6" data-aos="fade-up" data-aos-delay="400">
       <a href="#" class="text-gray-700 dark:text-white hover:text-primary"><i class="bi bi-tiktok"></i></a>
       <a href="#" class="text-gray-700 dark:text-white hover:text-primary"><i class="bi bi-instagram"></i></a>
@@ -120,11 +125,29 @@
 </footer>
 
 <!-- Dark mode toggle -->
-<button onclick="document.documentElement.classList.toggle('dark')" class="fixed bottom-5 right-5 bg-primary text-white p-3 rounded-full shadow-lg hover:bg-blue-700">
+<button onclick="toggleDarkMode()" class="fixed bottom-5 right-5 bg-primary text-white p-3 rounded-full shadow-lg hover:bg-blue-700">
   <i class="bi bi-moon-stars-fill"></i>
 </button>
 
+
 <!-- Scripts -->
+
+<script>
+  // Toggle dark mode
+  const toggleDarkMode = () => {
+    const html = document.documentElement;
+    html.classList.toggle('dark');
+    localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+  };
+
+  // Load theme on page load
+  window.addEventListener('DOMContentLoaded', () => {
+    if (localStorage.getItem('theme') === 'dark') {
+      document.documentElement.classList.add('dark');
+    }
+  });
+</script>
+
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>AOS.init();</script>
 </body>
